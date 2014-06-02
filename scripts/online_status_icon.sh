@@ -15,10 +15,9 @@ online_status() {
 }
 
 print_icon() {
-	local status=$(online_status)
 	# spacer fixes weird emoji spacing
 	local spacer=" "
-	if $status; then
+	if $(online_status); then
 		printf "$(get_tmux_option "$online_option_string" "$online_icon_default")$spacer"
 	else
 		printf "$(get_tmux_option "$offline_option_string" "$offline_icon_default")$spacer"
