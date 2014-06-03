@@ -5,8 +5,8 @@ Tmux plugin that enables displaying online status for your workstation.
 Introduces a new `#{online_status}` format.
 
 This plugin is useful if:
-- you spend most of your time in Tmux and don't want to "switch" to gui to
-  check whether you're connected.
+- you spend most of your time in Tmux and don't want to "switch" away from
+  the terminal to check whether you're connected.
 - you have a flaky internet connection and you don't want to be surprised
   when a simple `curl` or `wget` fails because the connection just broke.
 
