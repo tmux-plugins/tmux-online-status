@@ -1,6 +1,25 @@
 # Tmux online status
 
-Tmux plugin that displays online status of your workstation.
+Tmux plugin that enables displaying online status for your workstation.
+
+Introduces a new `#{online_status}` format.
+
+### Usage
+
+Add `#{online_status}` format string to your existing `status-right` tmux
+option.
+
+Here's the example:
+
+    # in .tmux.conf
+    set -g status-right "Online: #{online_status} | %a %h-%d %H:%M "
+
+The above will result in this:<br/>
+![online indicator](/screenshots/online_indicator.png)<br/>
+or this<br/>
+![offline indicator](/screenshots/offline_indicator.png)<br/>
+
+The icon will of course change as you connect/disconnect from the internet.
 
 ### Installation with [Tmux Plugin Manager](https://github.com/bruno-/tpm) (recommended)
 
@@ -12,6 +31,8 @@ Add plugin to the list of TPM plugins in `.tmux.conf`:
     "
 
 Hit `prefix + I` to fetch the plugin and source it.
+
+`#{online_status}` interpolation should now work.
 
 ### Manual Installation
 
@@ -28,11 +49,18 @@ Reload TMUX environment:
     # type this in terminal
     $ tmux source-file ~/.tmux.conf
 
+`#{online_status}` interpolation should now work.
+
 ### Limitations
 
 Online status icon most likely won't be instant. The duration depends on the
 `status-interval` Tmux option. So, it might take anywhere between 5 and 60
 seconds for online status icon to change.
+
+Set `status-interval` to a low number to make this faster, example:
+
+    # in .tmux.conf
+    set -g status-interval 5
 
 ### License
 
