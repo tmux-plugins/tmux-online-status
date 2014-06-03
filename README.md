@@ -68,6 +68,19 @@ Set `status-interval` to a low number to make this faster, example:
     # in .tmux.conf
     set -g status-interval 5
 
+### Other plugins
+
+You might also find these useful:
+
+- [pain control](https://github.com/bruno-/tmux_pain_control) - useful
+  standard bindings for controlling Tmux panes
+- [goto session](https://github.com/bruno-/tmux_goto_session) - faster session
+  switching
+- [battery osx](https://github.com/bruno-/tmux_battery_osx) - battery status
+  for OSX in Tmux `status-right`
+- [logging](https://github.com/bruno-/tmux_logging) - easy logging and
+  screen capturing
+
 ### License
 
 [MIT](LICENSE.md)
