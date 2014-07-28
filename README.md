@@ -27,13 +27,13 @@ or this<br/>
 
 The icon will of course change as you connect/disconnect from the internet.
 
-### Installation with [Tmux Plugin Manager](https://github.com/bruno-/tpm) (recommended)
+### Installation with [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm) (recommended)
 
 Add plugin to the list of TPM plugins in `.tmux.conf`:
 
-    set -g @tpm_plugins "              \
-      bruno-/tpm                       \
-      bruno-/tmux_online_status        \
+    set -g @tpm_plugins "                 \
+      tmux-plugins/tpm                    \
+      tmux-plugins/tmux-online-status     \
     "
 
 Hit `prefix + I` to fetch the plugin and source it.
@@ -44,7 +44,7 @@ Hit `prefix + I` to fetch the plugin and source it.
 
 Clone the repo:
 
-    $ git clone https://github.com/bruno-/tmux_online_status ~/clone/path
+    $ git clone https://github.com/tmux-plugins/tmux-online-status ~/clone/path
 
 Add this line to the bottom of `.tmux.conf`:
 
@@ -72,13 +72,9 @@ Set `status-interval` to a low number to make this faster, example:
 
 You might also find these useful:
 
-- [pain control](https://github.com/bruno-/tmux_pain_control) - useful
-  standard bindings for controlling Tmux panes
-- [goto session](https://github.com/bruno-/tmux_goto_session) - faster session
-  switching
-- [battery osx](https://github.com/bruno-/tmux_battery_osx) - battery status
+- [battery osx](https://github.com/tmux-plugins/tmux-battery-osx) - battery status
   for OSX in Tmux `status-right`
-- [logging](https://github.com/bruno-/tmux_logging) - easy logging and
+- [logging](https://github.com/tmux-plugins/tmux-logging) - easy logging and
   screen capturing
 
 ### License
