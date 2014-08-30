@@ -25,6 +25,11 @@ The above will result in this:<br/>
 or this<br/>
 ![offline indicator](/screenshots/offline_indicator.png)<br/>
 
+On linux the emoji is displayed, instead it will look like this:<br/>
+![online indicator](/screenshots/online_indicator_linux.png)<br/>
+or this<br/>
+![offline indicator](/screenshots/offline_indicator_linux.png)<br/>
+
 The icon will of course change as you connect/disconnect from the internet.
 
 ### Installation with [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm) (recommended)
