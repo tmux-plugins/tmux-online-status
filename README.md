@@ -15,22 +15,28 @@ This plugin is useful if:
 Add `#{online_status}` format string to your existing `status-right` tmux
 option.
 
-Here's the example:
+Here's the example in `.tmux.conf`:
 
-    # in .tmux.conf
     set -g status-right "Online: #{online_status} | %a %h-%d %H:%M "
 
-The above will result in this:<br/>
+**OS X**<br/>
+On OS X the above will look like this when online<br/>
 ![online indicator](/screenshots/online_indicator.png)<br/>
-or this<br/>
+or this when offline<br/>
 ![offline indicator](/screenshots/offline_indicator.png)<br/>
 
-On linux the emoji is not displayed, instead it will look like this:<br/>
+**Linux**<br/>
+Online status on Linux<br/>
 ![online indicator](/screenshots/online_indicator_linux.png)<br/>
-or this<br/>
+offline status<br/>
 ![offline indicator](/screenshots/offline_indicator_linux.png)<br/>
 
-The icon will of course change as you connect/disconnect from the internet.
+#### Configure icons
+If the icons don't display well on your machine you can change them in
+`.tmux.conf`:
+
+    set -g @online_icon "ok"
+    set -g @offline_icon "offline!"
 
 ### Installation with [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm) (recommended)
 
