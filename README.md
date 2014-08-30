@@ -83,8 +83,8 @@ Set `status-interval` to a low number to make this faster, example:
 
 You might also find these useful:
 
-- [battery osx](https://github.com/tmux-plugins/tmux-battery-osx) - battery status
-  for OSX in Tmux `status-right`
+- [battery](https://github.com/tmux-plugins/tmux-battery) - battery status in
+  Tmux `status-right`
 - [logging](https://github.com/tmux-plugins/tmux-logging) - easy logging and
   screen capturing
 
