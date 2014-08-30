@@ -5,8 +5,8 @@ CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 online_option_string="@online_icon"
 offline_option_string="@offline_icon"
 
-online_icon_default="✅ "
-offline_icon_default="⛔️ "
+online_icon_default="✔ "
+offline_icon_default="❌ "
 
 source $CURRENT_DIR/shared.sh
 
