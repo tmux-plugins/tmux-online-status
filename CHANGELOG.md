@@ -4,6 +4,7 @@
 - README updates
 - update readme to reflect github organization changes
 - linux can't display default offline icon - update it
+- add "@route_to_ping" option
 
 ### v0.0.2, 2014-06-02
 - bugfix: offline status icon wasn't displaying properly
