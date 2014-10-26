@@ -4,6 +4,7 @@ CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 online_option_string="@online_icon"
 offline_option_string="@offline_icon"
+route_to_ping_string="@route_to_ping"
 
 online_icon_osx="✅ "
 online_icon="✔ "
@@ -32,8 +33,12 @@ offline_icon_default() {
 	fi
 }
 
+route_to_ping_default() {
+  echo "www.google.com"
+}
+
 online_status() {
-	ping -c 3 www.google.com >/dev/null 2>&1
+	ping -c 3 $(get_tmux_option "$route_to_ping_string" "$(route_to_ping_default)" >/dev/null 2>&1
 }
 
 print_icon() {
