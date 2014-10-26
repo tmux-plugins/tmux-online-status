@@ -1,6 +1,8 @@
 # Changelog
 
 ### master
+
+### v1.0.0, 2014-10-26
 - README updates
 - update readme to reflect github organization changes
 - linux can't display default offline icon - update it
