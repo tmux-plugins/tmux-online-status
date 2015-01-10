@@ -1,6 +1,7 @@
 # Changelog
 
 ### master
+- to speed up the "online test" ping uses only 1 packet
 
 ### v1.0.0, 2014-10-26
 - README updates

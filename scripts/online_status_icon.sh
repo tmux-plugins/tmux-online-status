@@ -35,7 +35,7 @@ offline_icon_default() {
 }
 
 online_status() {
-	ping -c 3 $(get_tmux_option "$route_to_ping_string" "$route_to_ping_default") >/dev/null 2>&1
+	ping -c 1 $(get_tmux_option "$route_to_ping_string" "$route_to_ping_default") >/dev/null 2>&1
 }
 
 print_icon() {
