@@ -20,7 +20,12 @@ is_osx() {
 
 online_icon_default() {
 	if is_osx; then
-		echo "$online_icon_osx"
+		local ssid=$(bash $CURRENT_DIR/get_ssid.sh)
+		if [[ -n $ssid ]]; then
+			echo "$online_icon_osx $ssid"
+		else
+			echo "$online_icon_osx"
+		fi
 	else
 		echo "$online_icon"
 	fi
