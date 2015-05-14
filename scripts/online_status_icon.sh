@@ -4,12 +4,14 @@ CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 online_option_string="@online_icon"
 offline_option_string="@offline_icon"
+ping_timeout_string="@ping_timeout"
 route_to_ping_string="@route_to_ping"
 
 online_icon_osx="✅ "
 online_icon="✔ "
 offline_icon_osx="⛔️ "
 offline_icon="❌ "
+ping_timeout_default="3"
 route_to_ping_default="www.google.com"
 
 source $CURRENT_DIR/shared.sh
@@ -35,7 +37,14 @@ offline_icon_default() {
 }
 
 online_status() {
-	ping -c 1 $(get_tmux_option "$route_to_ping_string" "$route_to_ping_default") >/dev/null 2>&1
+	if is_osx; then
+		local timeout_flag="-t"
+	else
+		local timeout_flag="-w"
+	fi
+	local ping_timeout="$(get_tmux_option "$ping_timeout_string" "$ping_timeout_default")"
+	local ping_route="$(get_tmux_option "$route_to_ping_string" "$route_to_ping_default")"
+	ping -c 1 "$timeout_flag" "$ping_timeout" "$ping_route" >/dev/null 2>&1
 }
 
 print_icon() {
