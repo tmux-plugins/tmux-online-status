@@ -2,6 +2,7 @@
 
 ### master
 - to speed up the "online test" ping uses only 1 packet
+- fix issue with status-right and status-left whitespace being cut out
 
 ### v1.0.0, 2014-10-26
 - README updates
