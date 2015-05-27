@@ -37,10 +37,16 @@ offline_icon_default() {
 }
 
 online_status() {
+	if is_osx; then
+		timeout_flag="-t"
+	else
+		timeout_flag="-w"
+	fi
 	ping -c 1 \
-        -W $(get_tmux_option "$ping_timeout_string" "$ping_timeout_default") \
-        $(get_tmux_option "$route_to_ping_string" "$route_to_ping_default") \
-        >/dev/null 2>&1
+		$timeout_flag \
+		$(get_tmux_option "$ping_timeout_string" "$ping_timeout_default") \
+		$(get_tmux_option "$route_to_ping_string" "$route_to_ping_default") \
+		>/dev/null 2>&1
 }
 
 print_icon() {
