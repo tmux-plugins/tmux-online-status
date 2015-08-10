@@ -42,10 +42,7 @@ If the icons don't display well on your machine you can change them in
 
 Add plugin to the list of TPM plugins in `.tmux.conf`:
 
-    set -g @tpm_plugins "                 \
-      tmux-plugins/tpm                    \
-      tmux-plugins/tmux-online-status     \
-    "
+    set -g @plugin 'tmux-plugins/tmux-online-status'
 
 Hit `prefix + I` to fetch the plugin and source it.
 
