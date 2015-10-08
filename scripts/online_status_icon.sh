@@ -20,6 +20,10 @@ is_osx() {
 	[ $(uname) == "Darwin" ]
 }
 
+is_cygwin() {
+	[[ $(uname) == CYGWIN ]]
+}
+
 online_icon_default() {
 	if is_osx; then
 		echo "$online_icon_osx"
@@ -42,9 +46,14 @@ online_status() {
 	else
 		local timeout_flag="-w"
 	fi
+	if is_cygwin; then
+		local number_pings_flag="-n"
+	else
+		local number_pings_flag="-c"
+	fi
 	local ping_timeout="$(get_tmux_option "$ping_timeout_string" "$ping_timeout_default")"
 	local ping_route="$(get_tmux_option "$route_to_ping_string" "$route_to_ping_default")"
-	ping -c 1 "$timeout_flag" "$ping_timeout" "$ping_route" >/dev/null 2>&1
+	ping "$number_pings_flag" 1 "$timeout_flag" "$ping_timeout" "$ping_route" >/dev/null 2>&1
 }
 
 print_icon() {
