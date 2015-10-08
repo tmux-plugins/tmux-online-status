@@ -58,6 +58,6 @@ print_icon() {
 }
 
 main() {
-	print_icon "$status"
+	print_icon
 }
 main
