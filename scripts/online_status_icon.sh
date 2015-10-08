@@ -10,6 +10,7 @@ route_to_ping_string="@route_to_ping"
 online_icon_osx="✅ "
 online_icon="✔ "
 offline_icon_osx="⛔️ "
+offline_icon_cygwin="X "
 offline_icon="❌ "
 ping_timeout_default="3"
 route_to_ping_default="www.google.com"
@@ -21,7 +22,7 @@ is_osx() {
 }
 
 is_cygwin() {
-	[[ $(uname) == CYGWIN ]]
+	[[ $(uname) =~ CYGWIN ]]
 }
 
 online_icon_default() {
@@ -35,6 +36,8 @@ online_icon_default() {
 offline_icon_default() {
 	if is_osx; then
 		echo "$offline_icon_osx"
+	elif is_cygwin; then
+		echo "$offline_icon_cygwin"
 	else
 		echo "$offline_icon"
 	fi
