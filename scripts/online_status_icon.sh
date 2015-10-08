@@ -8,9 +8,9 @@ ping_timeout_string="@ping_timeout"
 route_to_ping_string="@route_to_ping"
 
 online_icon_osx="✅ "
-online_icon="✔ "
+online_icon="✔"
 offline_icon_osx="⛔️ "
-offline_icon_cygwin="X "
+offline_icon_cygwin="X"
 offline_icon="❌ "
 ping_timeout_default="3"
 route_to_ping_default="www.google.com"
@@ -60,12 +60,10 @@ online_status() {
 }
 
 print_icon() {
-	# spacer fixes weird emoji spacing
-	local spacer=" "
 	if $(online_status); then
-		printf "$(get_tmux_option "$online_option_string" "$(online_icon_default)")$spacer"
+		printf "$(get_tmux_option "$online_option_string" "$(online_icon_default)")"
 	else
-		printf "$(get_tmux_option "$offline_option_string" "$(offline_icon_default)")$spacer"
+		printf "$(get_tmux_option "$offline_option_string" "$(offline_icon_default)")"
 	fi
 }
 
