@@ -13,9 +13,6 @@ offline_icon_osx="⛔️ "
 offline_icon_cygwin="X"
 offline_icon="down"
 ping_timeout_default="3"
-route_to_ping_default="$(ip route | awk NR==1'{print $3}')"
-
-source $CURRENT_DIR/shared.sh
 
 is_osx() {
 	[ $(uname) == "Darwin" ]
@@ -24,6 +21,15 @@ is_osx() {
 is_cygwin() {
 	[[ $(uname) =~ CYGWIN ]]
 }
+
+if is_osx; then 
+    route_to_ping_default="$(ifconfig en0 | grep netmask | cut -d ' ' -f2)"
+else
+    route_to_ping_default="$(ip route | awk NR==1'{print $3}')"
+fi
+
+source $CURRENT_DIR/shared.sh
+
 
 online_icon_default() {
 	if is_osx; then
