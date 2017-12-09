@@ -25,6 +25,10 @@ is_cygwin() {
 	[[ $(uname) =~ CYGWIN ]]
 }
 
+is_freebsd() {
+	[ $(uname) == FreeBSD ]
+}
+
 online_icon_default() {
 	if is_osx; then
 		echo "$online_icon_osx"
@@ -44,7 +48,7 @@ offline_icon_default() {
 }
 
 online_status() {
-	if is_osx; then
+	if is_osx || is_freebsd; then
 		local timeout_flag="-t"
 	else
 		local timeout_flag="-w"
