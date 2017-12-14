@@ -10,7 +10,7 @@ This plugin is useful if:
 - you have a flaky internet connection and you don't want to be surprised
   when a simple `curl` or `wget` fails because the connection just broke.
 
-Tested and working on Linux, OSX and Cygwin.
+Tested and working on Linux, OSX, FreeBSD, and Cygwin.
 
 ### Usage
 
