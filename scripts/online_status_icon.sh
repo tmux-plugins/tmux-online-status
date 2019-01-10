@@ -6,6 +6,8 @@ online_option_string="@online_icon"
 offline_option_string="@offline_icon"
 ping_timeout_string="@ping_timeout"
 route_to_ping_string="@route_to_ping"
+online_color_fg_string="@online_color_fg"
+offline_color_fg_string="@offline_color_fg"
 
 online_icon_osx="✅ "
 online_icon="✔"
@@ -14,6 +16,8 @@ offline_icon_cygwin="X"
 offline_icon="❌ "
 ping_timeout_default="3"
 route_to_ping_default="www.google.com"
+online_color_fg_default="#[fg=white]"
+offline_color_fg_default="#[fg=white]"
 
 source $CURRENT_DIR/shared.sh
 
@@ -64,9 +68,13 @@ online_status() {
 }
 
 print_icon() {
+	local online_color_fg="$(get_tmux_option "$online_color_fg_string" "$online_color_fg_default")"
+	local offline_color_fg="$(get_tmux_option "$offline_color_fg_string" "$offline_color_fg_default")"
 	if $(online_status); then
+		printf "$online_color_fg"
 		printf "$(get_tmux_option "$online_option_string" "$(online_icon_default)")"
 	else
+		printf "$offline_color_fg"
 		printf "$(get_tmux_option "$offline_option_string" "$(offline_icon_default)")"
 	fi
 }
