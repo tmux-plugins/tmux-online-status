@@ -8,14 +8,11 @@ ping_timeout_string="@ping_timeout"
 route_to_ping_string="@route_to_ping"
 
 online_icon_osx="✅ "
-online_icon="✔"
 offline_icon_osx="⛔️ "
+online_icon="#[fg=green]ok##[fg=white]"
+offline_icon="#[fg=red]down##[fg=white]"
 offline_icon_cygwin="X"
-offline_icon="❌ "
 ping_timeout_default="3"
-route_to_ping_default="www.google.com"
-
-source $CURRENT_DIR/shared.sh
 
 is_osx() {
 	[ $(uname) == "Darwin" ]
@@ -25,9 +22,14 @@ is_cygwin() {
 	[[ $(uname) =~ CYGWIN ]]
 }
 
-is_freebsd() {
-	[ $(uname) == FreeBSD ]
-}
+if is_osx; then 
+    route_to_ping_default="$(ifconfig en0 | grep netmask | cut -d ' ' -f2)"
+else
+    route_to_ping_default="$(ip route | awk NR==1'{print $3}')"
+fi
+
+source $CURRENT_DIR/shared.sh
+
 
 online_icon_default() {
 	if is_osx; then
@@ -48,7 +50,7 @@ offline_icon_default() {
 }
 
 online_status() {
-	if is_osx || is_freebsd; then
+	if is_osx; then
 		local timeout_flag="-t"
 	else
 		local timeout_flag="-w"

@@ -8,10 +8,10 @@ ping_timeout_string="@ping_timeout"
 route_to_ping_string="@route_to_ping"
 
 online_icon_osx="✅ "
-online_icon="✔"
+online_icon="#[fg=green]ok##[fg=white]"
+offline_icon="#[fg=red]down##[fg=white]"
 offline_icon_osx="⛔️ "
 offline_icon_cygwin="X"
-offline_icon="❌ "
 ping_timeout_default="3"
 route_to_ping_default="www.google.com"
 
@@ -23,10 +23,6 @@ is_osx() {
 
 is_cygwin() {
 	[[ $(uname) =~ CYGWIN ]]
-}
-
-is_freebsd() {
-	[ $(uname) == FreeBSD ]
 }
 
 online_icon_default() {
@@ -48,7 +44,7 @@ offline_icon_default() {
 }
 
 online_status() {
-	if is_osx || is_freebsd; then
+	if is_osx; then
 		local timeout_flag="-t"
 	else
 		local timeout_flag="-w"
